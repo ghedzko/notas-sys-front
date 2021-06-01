@@ -1,0 +1,22 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  &__button {
+    font-size: medium;
+    height: 30px;
+    color: #000;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: #4fa9f1;
+    transition: ease-out 0.1s;
+  }
+  &__button:hover,
+  &__button:focus {
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: #2e5d84;
+    color: ivory;
+    transition: ease-out 0.1s;
+  }
+}
