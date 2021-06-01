@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "../../assets/images/logo.svg";
+export interface HomeProps {}
 
-function App() {
+export const Home: React.FC<HomeProps> = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +21,4 @@ function App() {
       </header>
     </div>
   );
-}
-
-export default App;
+};
