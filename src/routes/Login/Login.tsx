@@ -1,19 +1,17 @@
 import React from "react";
+import { Input } from "../../components/Input";
+
 import "./Login.scss";
+
 export interface LoginProps {}
 
 export const Login: React.FC<LoginProps> = () => {
   return (
     <div className="form-container">
       <form className="form-container__form" action="#">
-        <div>
-          <label htmlFor="username">Nombre de Usuario</label>
-          <input type="text" id="username" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="text" id="password" />
-        </div>
+        <Input label="Nombre de Usuario" id="username" autofocus />
+
+        <Input label="Password" id="password" />
 
         <button onClick={() => {}}>Ingresar</button>
       </form>
