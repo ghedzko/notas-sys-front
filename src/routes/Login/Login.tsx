@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 
 import "./Login.scss";
 
@@ -15,6 +16,9 @@ export const Login: React.FC<LoginProps> = () => {
 
   const handlerPasswordChange = (e: any) => {
     setPassword(e.target.value);
+  };
+  const handlerButtonClick = (e: any) => {
+    console.log(userName, password);
   };
 
   return (
@@ -35,8 +39,7 @@ export const Login: React.FC<LoginProps> = () => {
           onChange={handlerPasswordChange}
           type="password"
         />
-
-        <button onClick={() => {}}>Ingresar</button>
+        <Button label="Ingresar" onClick={handlerButtonClick} />
       </form>
     </div>
   );
