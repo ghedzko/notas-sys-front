@@ -1,0 +1,37 @@
+.form-container {
+  background-image: linear-gradient(
+    to right top,
+    #2c2c57,
+    #2c3560,
+    #2c3e69,
+    #2c4872,
+    #2c517a,
+    #305b86,
+    #336592,
+    #366f9e,
+    #3c7db2,
+    #428bc7,
+    #499adc,
+    #4fa9f1
+  );
+  background-color: #e2e2e2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    height: 180px;
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: ease-in-out 0.5s;
+  }
+  &__form:hover {
+    border: #2c2c57 solid 4px;
+  }
+}
