@@ -1,7 +1,9 @@
 import React, { ChangeEvent, useState } from "react"
+import moment from "moment"
 
 import { Input } from "../Input"
 import { Dropdown } from "../Dropdown"
+import { Datepicker } from "../Datepicker"
 
 import "./NoteCreator.scss"
 
@@ -28,6 +30,8 @@ const FAKE_CONTACTS = [
     },
 ]
 
+const DATE_FORMAT = "YYYY-MM-DD"
+
 export const NoteCreator: React.FC<NoteCreatorProps> = ({
     isAnIncomingNote,
 }) => {
@@ -36,11 +40,16 @@ export const NoteCreator: React.FC<NoteCreatorProps> = ({
     const [addressee, setAddressee] = useState("")
     const [description, setDescription] = useState("")
     const [file, setFile] = useState("")
+    const [date, setDate] = useState(moment().format(DATE_FORMAT))
 
     const handlerDescriptionChange = ({
         target,
     }: ChangeEvent<HTMLInputElement>) => {
         setDescription(target.value)
+    }
+
+    const handleChangeDate = ({ target }: ChangeEvent<HTMLInputElement>) => {
+        setDate(target.value)
     }
 
     return (
@@ -74,6 +83,12 @@ export const NoteCreator: React.FC<NoteCreatorProps> = ({
                     autofocus
                     value={file}
                     onChange={setFile}
+                />
+                <Datepicker
+                    label="Fecha de Creacion"
+                    id="date"
+                    value={date}
+                    onChange={handleChangeDate}
                 />
             </form>
         </div>
