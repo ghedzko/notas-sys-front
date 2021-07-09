@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction, useState, useEffect } from "react";
 import moment from "moment";
 
 import { Input } from "../Input";
@@ -9,6 +9,7 @@ import "./NoteCreator.scss";
 
 export interface NoteCreatorProps {
   isAnIncomingNote: boolean;
+  setDataNote: Dispatch<SetStateAction<{}>>
 }
 
 const FAKE_CONTACTS = [
@@ -34,6 +35,7 @@ const DATE_FORMAT = "YYYY-MM-DD";
 
 export const NoteCreator: React.FC<NoteCreatorProps> = ({
   isAnIncomingNote,
+  setDataNote
 }) => {
   const [noteNumber, setNoteNumber] = useState("");
   const [sender, setSender] = useState("-1");
@@ -41,6 +43,26 @@ export const NoteCreator: React.FC<NoteCreatorProps> = ({
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");
   const [date, setDate] = useState(moment().format(DATE_FORMAT));
+
+  useEffect(() => {
+    setDataNote({
+      noteNumber,
+      sender,
+      addressee,
+      description,
+      file,
+      date,
+    })
+  }, [
+    setDataNote,
+    noteNumber,
+    sender,
+    addressee,
+    description,
+    file,
+    date,
+  ])
+
 
   const handlerNoteNumberChange = ({
     target,
