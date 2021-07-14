@@ -94,23 +94,21 @@ const AddNoteForm: React.FC<NoteCreatorProps> = ({ isAnIncomingNote }) => {
     // e.preventDefaul();
     console.log(contacts);
     console.log(options);
-    const newNote = [
-      {
-        noteNumber: noteNumber + 0,
-        sender: sender,
-        addressee: addressee,
-        date: date,
-        description: description,
-        tag: ["prueba", "Guille", "update", "saraza"],
-      },
-    ];
+    const newNote = {
+      noteNumber: parseInt(noteNumber),
+      sender: sender.length > 0 ? sender : "60ef48a8912783b155f825af",
+      addressee: addressee.length > 0 ? addressee : "60ef48a8912783b155f825af",
+      date: date,
+      description: description,
+      tag: ["prueba", "Guille", "update", "saraza"],
+    };
+    console.log(newNote);
     axios
       .post("http://localhost:5000/notes", newNote)
-      .then((response) => console.log(response))
+      .then((response: AxiosResponse) => console.log(response))
       .catch((error) => {
         console.log(error);
       });
-    console.log(newNote);
   };
 
   return (
