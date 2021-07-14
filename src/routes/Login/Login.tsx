@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
+import Button from "../../components/Button/Button";
 
 import "./Login.scss";
 
@@ -10,8 +10,9 @@ export const Login: React.FC<LoginProps> = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handlerUserChange = (e: any) => {
-    setUserName(e.target.value);
+  const handlerUserChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const { value } = target;
+    setUserName(value);
   };
 
   const handlerPasswordChange = (e: any) => {
