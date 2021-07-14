@@ -98,8 +98,9 @@ const AddNoteForm: React.FC<NoteCreatorProps> = ({ isAnIncomingNote }) => {
       noteNumber: parseInt(noteNumber),
       sender: sender.length > 0 ? sender : "60ef48a8912783b155f825af",
       addressee: addressee.length > 0 ? addressee : "60ef48a8912783b155f825af",
-      date: date,
+      sendDate: date,
       description: description,
+      type: isAnIncomingNote ? "in" : "out",
       tag: ["prueba", "Guille", "update", "saraza"],
     };
     console.log(newNote);
